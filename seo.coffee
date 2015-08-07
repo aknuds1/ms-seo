@@ -171,6 +171,7 @@ Deps.autorun( ->
 Deps.autorun( ->
   return unless SEO
   currentRouteName = getCurrentRouteName()
+  return unless currentRouteName?
   settings = SeoCollection.findOne({route_name: currentRouteName}) or {}
   SEO.set(settings)
 )
