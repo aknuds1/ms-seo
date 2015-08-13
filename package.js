@@ -1,12 +1,11 @@
 Package.describe({
-  name: "manuelschoebel:ms-seo",
+  name: "aknudsen:ms-seo",
   summary: "Easily config SEO for your routes",
-  git: "https://github.com/DerMambo/ms-seo.git",
-  version: "0.4.1"
+  git: "https://github.com/aknuds1/ms-seo.git",
+  version: "0.5.0"
 });
 
 Package.onUse(function(api){
-
   api.versionsFrom('1.0');
 
   api.use(['mongo', 'coffeescript', 'underscore']);
