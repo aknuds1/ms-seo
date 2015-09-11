@@ -16,7 +16,8 @@ SEO =
 
   # e.g. ignore('meta', 'fragment')
   ignore: (type, value) ->
-    @settings.ignore[type].push(value) if @settings.ignore[type] and _.indexOf(@settings.ignore[type], value) is -1
+    @settings.ignore[type].push(value) if @settings.ignore[type] and _.indexOf(
+      @settings.ignore[type], value) is -1
 
   config: (settings) ->
     _.extend(@settings, settings)
@@ -25,7 +26,6 @@ SEO =
     @clearAll() if clearBefore
 
     currentRouter = Router.current()
-    url = Router.url(currentRouter.route.getName(), currentRouter.params) if currentRouter
     #SEO.set({url: Router.url(currentRouter.route.name, currentRouter.params)})
 
     meta = options.meta
@@ -37,8 +37,10 @@ SEO =
 
     if options.url
       @setUrl options.url
-    else if url
-      @setUrl url
+    else
+      url = Router.url(currentRouter.route.getName(), currentRouter.params) if currentRouter
+      if url
+        @setUrl url
 
     # set meta
     if meta and _.isArray(meta)
